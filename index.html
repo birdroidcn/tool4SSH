@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html;charset=utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>tool4SSH</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/index.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="./assets/offcanvas.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target="#sidebar">
+
+    <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+       <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="#config-path" class=" active">设置路径</a></li>
+            <li><a href="#config-data" >配置数据源</a></li>
+            <li><a href="#" >xxx</a></li>
+            <li><a href="#console">控制台</a></li>
+          </ul>
+        </div><!--/span-->
+        <div class="col-xs-12 col-sm-9">
+        <!-- 路径配置 -->
+        <div class="section" id="config-path">
+           <div class="page-header">
+              <h1 id="js-overview">路径配置</h1>
+           </div>
+           <form role="form">
+			  <div class="form-group">
+			    <label for="">工程src所在路径</label>
+			    <input class="form-control" name='srcPath'>
+			  </div>
+			  <div class="form-group">
+			    <label for="">包存放路径</label>
+			    <input class="form-control" name='pkgPath'>
+			  </div>
+			  <div class="form-group">
+			    <label >sql文件所在路径</label>
+			    <input class="form-control" name='sqlMap'>
+			  </div>
+			  <div class="form-group">
+			    <label >db配置文件路径</label>
+			    <input class="form-control" name='dbCtx'>
+			  </div>
+			  <div class="form-group">
+			    <label >service文件所在路径</label>
+			    <input class="form-control" name='serviceCtx'>
+			  </div>
+			  <div class="form-group">
+			    <label >structs配置文件所在路径</label>
+			    <input class="form-control" name='structs'>
+			  </div>
+			  <button type="submit" class="btn btn-default">确定</button>
+          </form>
+        </div>
+        <!-- 配置数据源-->
+        <div class="section" id="config-data">
+           <div class="page-header">
+              <h1 id="js-overview">配置数据源</h1>
+           </div>
+           <form class="form-horizontal" role="form">
+			  <div class="form-group">
+			    <label  class="col-sm-2 control-label">实体名称</label>
+			    <div class="col-sm-5" >
+			      <input type="text" class="form-control" name="name">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label  class="col-sm-2 control-label">属性列名</label>
+			    <div class="col-sm-5">
+			      <input type="text" class="form-control" name='valColumn'>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label  class="col-sm-2 control-label" >注释列名</label>
+			    <div class="col-sm-5">
+			      <input type="text" class="form-control" name='antColumn'>
+			    </div>
+			  </div>	
+			  <div class="form-group">
+			    <label  class="col-sm-2 control-label">工作表名称</label>
+			    <div class="col-sm-5">
+			      <input type="text" class="form-control" name="sheetName">
+			    </div>
+			  </div>			  			  
+			  <div class="form-group">
+			    <label class="col-sm-2 control-label">excel表路径</label>
+			    <div class="col-sm-5">
+			       <input type=text class="form-control" name="excelpath">
+			    </div>
+			  </div>		  			  
+			  <div class="form-group">
+		         <div class="col-sm-offset-2 col-sm-10">
+		            <button type="submit" class="btn btn-default">确定</button>
+		         </div>
+		      </div>
+          </form>
+        </div>
+        <!-- 控制台-->
+        <div class="section" id="console">
+           <div class="page-header">
+              <h1 id="js-overview">控制台</h1>
+           </div>
+           <div class="row">
+              <button class="btn btn-default" id="exec">执行</button>
+              <div class="wrap">
+              </div>
+           </div>
+        </div>	
+        </div><!--/span-->
+        
+      </div><!--/row-->
+
+    </div><!--/.container-->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./assets/jquery-1.7.2.js"></script>
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/offcanvas.js"></script>
+    <script type="text/ejs" id='file-section'>
+    <% var index = 0;%>
+	<% files.forEach(function(file){ %>
+		<!-- <%=file.type %>文件-->
+		<div class="section" id="<%=file.type%>-file" data-index='<%=index++%>'class="file">
+		   <div class="page-header">
+	  	    <h1 id="js-overview"><%=file.type%>文件</h1>
+	 	  </div>
+	  	 <form role="form">
+              <div class="form-group">
+			    <label for="">文件名后缀</label>
+			    <input class="form-control" name="nameSuf" value="<%=file.nameSuf%>" />
+			  </div>
+			  <div class="form-group">
+			    <label for="">文件路径后缀</label>
+			    <input class="form-control" name="pathSuf" value="<%=file.pathSuf%>" />
+			  </div>
+			  <div class="form-group">
+		 	   <label for="">文件格式</label>
+		 	   <input class="form-control" name="format" value="<%=file.format%>">
+			  </div>
+			  <div class="form-group">
+		  	  <label >模板</label>
+		  	  <textarea class="form-control" style="height:220px;" >
+<%=file.getTemplate()%>
+		  	  </textarea>
+		 	 </div>
+		 	 <button type="submit" class="btn btn-default">修改</button>
+	  	</form>
+		</div>
+	<%})%>
+    </script>
+    <script src="./assets/uievent.js"></script>
+</body>
+</html>

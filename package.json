@@ -1,0 +1,10 @@
+{
+  "name": "tool4SSH",
+  "main": "index.html",
+  "window": {
+    "title": "node-webkit demo",
+    "toolbar": true,
+    "width": 1000,
+    "height": 800
+   }
+}

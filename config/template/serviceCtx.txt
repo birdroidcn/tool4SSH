@@ -1,0 +1,7 @@
+ <% var firstToLower = function(str){return str.substring(0,1).toLowerCase()+str.substring(1);} %>
+ <bean id="<%=firstToLower(action.name) %>" class="<%=action.clsPath %>" scope="prototype">
+  	<property name="<%=firstToLower(service.name) %>" ref="<%=firstToLower(service.name) %>"></property>
+ </bean>
+ <bean id="<%=firstToLower(service.name) %>" class="<%=serviceImpl.clsPath %>">
+	<property name="<%=firstToLower(dao.name) %>" ref="<%=firstToLower(dao.name) %>"/>
+ </bean>

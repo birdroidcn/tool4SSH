@@ -1,0 +1,21 @@
+package <%=bean.pkgPath %>;
+/**
+ * bean
+ * date <%=Date() %>
+ */
+public class <%=bean.name %> {
+   <% props.forEach(function(e){%>
+   private String <%=e.value%>;//<%=e.annotation%>
+   <%})%>
+   <% props.forEach(function(e){
+      var v=e.value;
+      var V=v.substring(0,1).toUpperCase()+v.substring(1);
+   %>
+   public String get<%=V%>(){
+       return <%=v%>;
+   }
+   public String set<%=V%>(String <%=v%>){
+       return this.<%=v%> = <%=v%>;
+   }
+   <%})%>
+}

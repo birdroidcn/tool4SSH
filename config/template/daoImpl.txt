@@ -1,0 +1,25 @@
+package <%=daoImpl.pkgPath %>;
+import <%=bean.clsPath%>;
+import <%=dao.clsPath%>;
+import com.framework.dao.ibatis.BaseDaoiBatis;
+import java.util.Map;
+import java.util.List;
+/**
+ * daoimpl
+ * date <%=Date() %>
+ */
+ public class <%=daoImpl.name%> extends BaseDaoiBatis implements <%=dao.name%>
+ {
+	public List<<%=bean.name%>> finListByMap(Map map){
+	    return this.getSqlMapClientTemplate().queryForList("<%=dataName %>.find<%=dataName %>List",map);
+	}
+	public void deleteByNo(String no){
+	    this.getSqlMapClientTemplate().delete("<%=dataName %>.delete<%=bean.name %>",no);
+	}
+	public void updateByMap(Map map){
+	    this.getSqlMapClientTemplate().update("<%=dataName %>.update<%=bean.name %>",map);
+	}
+	public void insertByMap(Map map){
+	    this.getSqlMapClientTemplate().insert("<%=dataName %>.insert<%=bean.name %>",map);
+	}
+ }

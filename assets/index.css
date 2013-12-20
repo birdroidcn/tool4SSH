@@ -1,0 +1,31 @@
+#sidebar .nav{
+	position: fixed;
+    top: 70px;
+}
+#console{
+	padding-bottom:160px;
+}
+.wrap {
+margin-top : 20px;
+margin-left: 0;
+margin-right: 0;
+background-color: #fff;
+border-width: 1px;
+border-color: #ddd;
+border-radius: 4px 4px 0 0;
+box-shadow: none;
+border-style: solid;
+position: relative;
+padding: 45px 15px 15px;
+}
+.wrap:after {
+content: "日志";
+position: absolute;
+top: 15px;
+left: 15px;
+font-size: 12px;
+font-weight: bold;
+color: #bbb;
+text-transform: uppercase;
+letter-spacing: 1px;
+}

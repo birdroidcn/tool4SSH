@@ -1,0 +1,36 @@
+package <%=serviceImpl.pkgPath %>;
+import <%=bean.clsPath%>;
+import <%=service.clsPath%>;
+import <%=dao.clsPath%>;
+import java.util.Map;
+import java.util.List;
+/**
+ * serviceImpl
+ * date <%=Date() %>
+ */
+ public class <%=serviceImpl.name%> implements <%=service.name%>
+ { <% var value = dao.name.substring(0,1).toLowerCase()+dao.name.substring(1); %>
+    private <%=dao.name%> <%=value %>;
+    //查找
+	public List<<%=bean.name%>> finListByMap(Map map){
+	    return <%=value %>.finListByMap(map);
+	}
+	//删除
+	public void deleteByNo(String no){
+	    <%=value %>.deleteByNo(no);
+	}
+	//修改
+	public void updateByMap(Map map){
+	    <%=value %>.updateByMap(map);
+	}
+	//插入
+	public void insertByMap(Map map){
+	    <%=value %>.insertByMap(map);
+	}
+	public <%=dao.name%> get<%=dao.name%>() {
+		return <%=value %>;
+	}
+	public void set<%=dao.name%>(<%=dao.name%> <%=value %>) {
+		this.<%=value %> = <%=value %>;
+	}
+ }

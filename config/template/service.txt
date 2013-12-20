@@ -1,0 +1,15 @@
+package <%=service.pkgPath %>;
+import <%=bean.clsPath%>;
+import java.util.Map;
+import java.util.List;
+/**
+ * service
+ * service <%=Date() %>
+ */
+ public interface <%=service.name%>
+ {
+   public List<<%=bean.name%>> finListByMap(Map map); 
+   public void deleteByNo(String no);
+   public void updateByMap(Map map);
+   public void insertByMap(Map map);
+ }

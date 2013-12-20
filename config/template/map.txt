@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+  "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="<%=dataName %>">
+  <typeAlias alias="<%=dataName %>" type="<%=bean.clsPath %>" />
+  <resultMap id="<%=dataName %>Result" class="<%=bean.clsPath %>">
+  	<% props.forEach(function(e){%><result property="<%=e.value %>" column="<%=e.value %>" nullValue=""/>
+    <%})%>
+  </resultMap>
+  <!-- 查询条件 -->
+  <sql id="searchCondition">
+    <% props.forEach(function(e){%><isNotEmpty prepend=" and " property="<%=e.value %>">
+		  t.<%=e.value %> = #<%=e.value %>#
+	</isNotEmpty>
+	<%})%>
+  </sql>
+  <!-- 查询列表 -->
+  <select id="find<%=dataName %>List" parameterClass="map" resultMap="<%=dataName %>Result">
+  	select 
+  	distinct t.*
+  	from <%=tableName %> t
+  	where 1=1
+  	<include refid="searchCondition" />
+  </select>
+  <!-- 保存对象 -->
+  <insert id="insert<%=bean.name %>" parameterClass="map">
+	insert into <%=tableName %> VALUES( 
+	<% for(var i=0,len=props.length;i<len;i++){%>#<%=props[i].value%># <%if(i<len-1){%>,<%}%><%if(i%5==4){%><%='\n'%><%}%><%}%>	
+  </insert>
+  <!-- 删除对象 -->
+  <delete id="delete<%=bean.name %>" parameterClass="java.lang.String">
+	delete from <%=tableName%> set where 1=1
+  </delete>
+  <!-- 更新 -->
+  <update id="update<%=bean.name %>" parameterClass="map">
+	update <%=tableName %> set
+	<% for(var i=0,len=props.length;i<len;i++){%><%=props[i].value%>= #<%=props[i].value%># <%if(i<len-1){%>,<%}%>
+    <%}%>
+	where 1=1
+  </update>
+</sqlMap>

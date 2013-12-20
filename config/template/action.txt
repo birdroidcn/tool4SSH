@@ -1,0 +1,47 @@
+package <%=action.pkgPath %>;
+import <%=bean.clsPath%>;
+import <%=service.clsPath%>;
+import com.framework.action.WisdoorAction;
+import com.opensymphony.xwork2.ModelDriven;
+import com.framework.util.ServiceNameConstants;
+import java.util.List;
+<% var beanName = bean.name, beanValue=beanName.substring(0,1).toLowerCase()+beanName.substring(1); 
+   var sName = service.name, sValue=sName.substring(0,1).toLowerCase()+sName.substring(1); %>
+/**
+ * Action
+ * date <%=Date() %>
+ */
+public class <%=action.name%> extends WisdoorAction implements ModelDriven<<%=beanName %>>
+{   
+	private static final long serialVersionUID = 1L;
+	private <%=sName %> <%=sValue%> ;
+	//bean对象
+	private  <%=beanName%> <%=beanValue%> = new <%=beanName%>();
+	//bean列表
+	private List<<%=beanName%>> <%=beanValue%>List;
+    public <%=beanName%> getModel() 
+	{
+		return <%=beanValue%>;
+	}
+	public <%=beanName%> get<%=beanName%>() {
+		return  <%=beanValue%>;
+	}
+	public void set<%=beanName%>(<%=beanName%> <%=beanValue%>) {
+		this.<%=beanValue%> = <%=beanValue%>;
+	}
+	public <%=sName%> get<%=sName%>() {
+		return  <%=sValue%>;
+	}
+	public void set<%=sName%>(<%=sName%> <%=sValue%>) {
+		this.<%=sValue%> = <%=sValue%>;
+	}
+	public List<<%=beanName%>> get<%=beanName%>List() {
+		return  <%=beanValue%>List;
+	}
+	public void set<%=beanName%>List(List<<%=beanName%>> <%=beanValue%>List) {
+		this.<%=beanValue%>List = <%=beanValue%>List;
+	}
+
+}
+		  	  
+		  	  
