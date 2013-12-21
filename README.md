@@ -6,7 +6,7 @@ SSH框架代码自动生成工具
  - 简单配置便可生成SSH框架常用文件，包括action,bean,service,dao,struts,map(iBATIS)等文件，并带有基本的CRUD函数
  - 可将生成文件自动配添加到配置文件
  - 高度可定制，包括文件名称、路径、内容
- - 现有两个版本可用，node版和node-webkit版。nw比node多了操作界面。
+ - 现有两个版本可用，node版和node-webkit版。nw比node多了操作界面
 
 Node.js version
 --------
@@ -63,6 +63,10 @@ node-webkit version(带UI)
 安装
 ```sh
 npm install tool4ssh
+```
+修改配置文件package.json
+```
+"main": "index.js"  ->  "main": "index.html"
 ```
 下载bootstrap3.0 ,jquery ,放入assets文件夹下
 ```
