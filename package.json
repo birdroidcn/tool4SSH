@@ -1,11 +1,34 @@
 {
   "name": "tool4SSH",
-  "author": "birdroid <birdroid@126.com>",
-  "version": "1.0",
+  "version": "1.0.0",
+  "description": "SSH代码自动生成工具",
   "main": "index.js",
-  "dependencies" : {
-    "ejs"   :  "*",
-    "mkdirp" :  "*",
-    "xlsjs" :  "*"
+  "dependencies": {
+    "mkdirp": "~0.3.5",
+    "ejs": "~0.8.5",
+    "xlsjs": "~0.4.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/birdroidcn/tool4SSH"
+  },
+  "keywords": [
+    "ssh",
+    "tool"
+  ],
+  "author": "birdroid <birdroid@126.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/birdroidcn/tool4SSH/issues"
+  },
+  "window": {
+    "title": "SSH代码自动生成工具",
+    "toolbar": true,
+    "width": 1000,
+    "height": 800
   }
 }
