@@ -7,7 +7,7 @@
     data = config.getData(),
     files = [];
     
-data.props = util.getProps(data.excelpath,data.valColumn,data.antColumn,data.sheetName);
+data.props = config.getProps(data.excelpath,data.valColumn,data.antColumn,data.sheetName);
 //初始化File实例
 File.prototype.srcPath = path.srcPath;
 File.prototype.pkgPath = path.pkgPath;

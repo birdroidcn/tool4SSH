@@ -1,1 +1,10 @@
-[{"type":"action","pathSuf":"/action","nameSuf":"action"},{"type":"bean","pathSuf":"/bean","nameSuf":""},{"type":"dao","pathSuf":"/dao","nameSuf":"dao"},{"type":"daoImpl","pathSuf":"/dao/impl","nameSuf":"daoImpl"},{"type":"service","pathSuf":"/service","nameSuf":"service"},{"type":"serviceImpl","pathSuf":"/service/impl","nameSuf":"serviceImpl"},{"type":"map","pathSuf":"/dao/impl/maps","format":".xml","nameSuf":"map"},{"type":"struts","pathSuf":"/action","nameSuf":"action","format":".xml"}]
+[
+	{"type":"action","pathSuf":"/action","nameSuf":"action"},
+	{"type":"bean","pathSuf":"/bean","nameSuf":""},
+	{"type":"dao","pathSuf":"/dao","nameSuf":"dao"},
+	{"type":"daoImpl","pathSuf":"/dao/impl","nameSuf":"daoImpl"},
+	{"type":"service","pathSuf":"/service","nameSuf":"service"},
+	{"type":"serviceImpl","pathSuf":"/service/impl","nameSuf":"serviceImpl"},
+	{"type":"map","pathSuf":"/dao/impl/maps","format":".xml","nameSuf":"map"},
+	{"type":"struts","pathSuf":"/action","nameSuf":"action","format":".xml"}
+]

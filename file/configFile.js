@@ -13,8 +13,14 @@ var Config = function(type,closeTag,dependant,template){
 }
 Config.prototype.srcPath = '';
 Config.prototype.readFile = function(){
-    fs.chmodSync(this.path, '777');
-    return fs.readFileSync(this.path,'utf-8');
+    var ctet = "";
+    try{
+	    fs.chmodSync(this.path, '777');
+	    ctet = fs.readFileSync(this.path,'utf-8');
+    }catch(e){
+       util.log(e);
+    }
+    return ctet;
 }
 
 Config.prototype.writeFile = function(ret){

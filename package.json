@@ -2,9 +2,14 @@
   "name": "tool4SSH",
   "main": "index.html",
   "window": {
-    "title": "node-webkit demo",
+    "title": "SSH代码自动生成工具",
     "toolbar": true,
     "width": 1000,
     "height": 800
-   }
+   },
+   "dependencies" : {
+    "ejs"   :  "*",
+    "mkdirp" :  "*",
+    "xlsjs" :  "*"
+  }
 }
