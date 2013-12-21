@@ -3,24 +3,27 @@ tool4SSH
 
 SSH框架代码自动生成工具
 
- - 简单配置便可生成SSH框架常用文件，包括action,bean,service,dao,struts,map(iBATIS)等文件
+ - 简单配置便可生成SSH框架常用文件，包括action,bean,service,dao,struts,map(iBATIS)等文件，并带有基本的CRUD函数
  - 可将生成文件自动配添加到配置文件
  - 高度可定制，包括文件名称、路径、内容
  - 现有两个版本可用，node版和node-webkit版。nw比node多了操作界面。
 
 Node.js version
 --------
-下载并安装依赖
+安装
 ```sh
-npm install ejs
-npm install mkdirp
-npm install xlsjs
+npm install tool4ssh
 ```
+运行(省缺配置为sample中数据源),文件产生在sample/src下
+```sh
+node index.js
+```
+###配置说明
  配置路径 config/path.json (必配置)
 ```json
 {
     "srcPath":"D:/sample/src",   //工程src所在路径
-	"pkgPath":"D:/sample/src/com",  //包存放路径
+    "pkgPath":"D:/sample/src/com",  //包存放路径
 	"sqlMap":"D:/sample//sqlMapConfig.xml", //iBATIS库对应配置文件  可为空
 	"dbCtx":"D:/sample/applicationContext-database.xml",//配置dao bean文件 可为空
 	"serviceCtx":"D:/sample/appContext.xml",//配置action,service bean文件 可为空
@@ -55,15 +58,23 @@ npm install xlsjs
 <%=action.clsName%>  <!-- 类路径 com.xx.yy.ZzAction -->
 <%=action.pkgName%>  <!-- 包路径 com.xx.yy -->
 ```
-执行
-```sh
-node index.js
-```
 node-webkit version(带UI)
 -----------
-安装node-webkit,启动即可使用
+安装
 ```sh
-nw tool4SSH
+npm install tool4ssh
+```
+下载bootstrap3.0 ,jquery ,放入assets文件夹下
+```
+assets/
+      bootstrap/
+               js/bootstrap.min.js
+               css/bootstrap.min.css
+      jquery-1.7.2.js
+```
+安装node-webkit 运行(省缺配置为sample中数据源),文件产生在sample/src下
+```sh
+nw tool4ssh
 ```
 
 License
