@@ -1,16 +1,23 @@
 ﻿var fs = require('fs'),
     xls = require('xlsjs'),
+    ps = require('path'),
     util = require('../common/util.js');
 
 exports.getPath = function(){
     var path = __dirname+'/path.json';
     var ctet = fs.readFileSync(path, 'utf8');
-    return JSON.parse(ctet);
+    var obj =  JSON.parse(ctet);
+    for(var key in obj){
+        obj[key] = ps.resolve(__dirname,obj[key]).replace(/\\/g,'/'); 
+    }
+    return obj;
 }
 exports.getData = function(){
     var path = __dirname+'/data.json';
     var ctet = fs.readFileSync(path, 'utf8');
-    return JSON.parse(ctet);
+    var obj = JSON.parse(ctet);
+    obj.excelpath = ps.resolve(__dirname,obj.excelpath).replace(/\\/g,'/');
+    return obj;
 }
 exports.getFiles = function(){
     var path = __dirname+'/files.json';
