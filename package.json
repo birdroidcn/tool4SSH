@@ -1,5 +1,5 @@
 {
-  "name": "tool4SSH",
+  "name": "tool4ssh",
   "version": "1.0.0",
   "description": "SSH代码自动生成工具",
   "main": "index.js",
