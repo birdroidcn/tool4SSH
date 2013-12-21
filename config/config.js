@@ -1,4 +1,5 @@
 ﻿var fs = require('fs'),
+    xls = require('xlsjs'),
     util = require('../common/util.js');
 
 exports.getPath = function(){
@@ -52,6 +53,7 @@ exports.getProps = function(path,valColumn,antColumn,sheet){
               return addr;
            }
         }
+        util.log(path+'中不存在列名:'+v);
     }
 	var wb =  xls.readFile(path);
 	var ws = wb.Sheets[sheet];
@@ -59,7 +61,10 @@ exports.getProps = function(path,valColumn,antColumn,sheet){
 	var va = getAddrByV(valColumn);
 	var props = [];
 	var c;
-	if(va[1]!=aa[1]) return props;
+	if(va[1]!=aa[1]) {
+	    util.log('列名不在同一行');
+	    return props
+	}
 	else c =Number(va[1])+1;
 	while(ws[va[0]+c]){
 	  props.push({
